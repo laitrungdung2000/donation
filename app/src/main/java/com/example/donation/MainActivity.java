@@ -88,9 +88,9 @@ public class MainActivity extends Base {
     @Override
     public void reset(MenuItem item)
     {
-//        totalDonated = 0;
-//        progressBar.setProgress(totalDonated);
-//        String totalDonatedStr = "$" + totalDonated;
-//        amountTotal.setText(totalDonatedStr);
+        totalDonated = 0;
+        progressBar.setProgress(totalDonated);
+        String totalDonatedStr = "$" + totalDonated;
+        amountTotal.setText(totalDonatedStr);
     }
 }
