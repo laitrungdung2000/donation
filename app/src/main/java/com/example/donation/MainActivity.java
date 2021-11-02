@@ -56,12 +56,12 @@ public class MainActivity extends Base {
         paymentMethod = (RadioGroup) findViewById(R.id.paymentMethod);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         amountPicker = (NumberPicker) findViewById(R.id.amountPicker);
-//        amountText = (EditText) findViewById(R.id.paymentAmount);
-//        amountTotal = (TextView) findViewById(R.id.totalSoFar);
+        amountText = (EditText) findViewById(R.id.paymentAmount);
+        amountTotal = (TextView) findViewById(R.id.totalSoFar);
         amountPicker.setMinValue(0);
         amountPicker.setMaxValue(1000);
         progressBar.setMax(10000);
-//        amountTotal.setText("$0");
+        amountTotal.setText("$0");
     }
 
     public void donateButtonPressed (View view)
@@ -71,9 +71,9 @@ public class MainActivity extends Base {
         int donatedAmount = amountPicker.getValue();
         if (donatedAmount == 0)
         {
-//            String text = amountText.getText().toString();
-//            if (!text.equals(""))
-//                donatedAmount = Integer.parseInt(text);
+            String text = amountText.getText().toString();
+            if (!text.equals(""))
+                donatedAmount = Integer.parseInt(text);
         }
         if (donatedAmount > 0)
         {
