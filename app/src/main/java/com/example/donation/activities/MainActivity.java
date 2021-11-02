@@ -1,25 +1,19 @@
-package com.example.donation;
+package com.example.donation.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.donation.R;
+import com.example.donation.activities.Base;
 import com.example.donation.models.Donation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,7 +21,6 @@ import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Base {
 
@@ -77,9 +70,10 @@ public class MainActivity extends Base {
         }
         if (donatedAmount > 0)
         {
-            newDonation(new Donation(donatedAmount, method));
-            progressBar.setProgress(totalDonated);
-            String totalDonatedStr = "$" + totalDonated;
+            app.newDonation(new Donation(donatedAmount, method));
+            Log.v("Donate", "" + app.newDonation(new Donation(donatedAmount, method)));
+            progressBar.setProgress(app.totalDonated);
+            String totalDonatedStr = "$" + app.totalDonated;
             amountTotal.setText(totalDonatedStr);
         }
         Log.v("Donate", "Really got the donate button");
@@ -88,9 +82,9 @@ public class MainActivity extends Base {
     @Override
     public void reset(MenuItem item)
     {
-        totalDonated = 0;
-        progressBar.setProgress(totalDonated);
-        String totalDonatedStr = "$" + totalDonated;
+        app.totalDonated = 0;
+        progressBar.setProgress(app.totalDonated);
+        String totalDonatedStr = "$" + app.totalDonated;
         amountTotal.setText(totalDonatedStr);
     }
 }
