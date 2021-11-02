@@ -18,12 +18,13 @@ public class DonationApp extends Application
     public DBManager dbManager;
     public boolean newDonation(Donation donation)
     {
+        Log.v("Donate: ", "abc --->" + totalDonated);
         boolean targetAchieved = totalDonated > target;
         if (!targetAchieved)
         {
             dbManager.add(donation);
-//            Log.v("Donate:", donations.toString());
             totalDonated += donation.amount;
+
         }
         else
         {

@@ -42,7 +42,7 @@ public class DBManager {
 		List<Donation> donations = new ArrayList<Donation>();
 		Cursor cursor = database.rawQuery("SELECT * FROM donations", null);
 		cursor.moveToFirst();
-		while (!cursor.isAfterLast()) {
+		while (!cursor.isAfterLast() && cursor != null && !cursor.isClosed()) {
 			Donation d = toDonation(cursor);
 			donations.add(d);
 			cursor.moveToNext();
