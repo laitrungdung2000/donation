@@ -80,7 +80,7 @@ public class MainActivity extends Base {
             newDonation(new Donation(donatedAmount, method));
             progressBar.setProgress(totalDonated);
             String totalDonatedStr = "$" + totalDonated;
-//            amountTotal.setText(totalDonatedStr);
+            amountTotal.setText(totalDonatedStr);
         }
         Log.v("Donate", "Really got the donate button");
     }
